@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koj Store | تيشيرتات Koj</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <a class="logo" href="#home">koj <span>STORE</span></a>
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="القائمة">☰</button>
+        <nav class="nav-links" id="nav-links">
+            <a href="#home">الرئيسية</a>
+            <a href="#products">المنتجات</a>
+            <a href="#about">About  Koj</a>
+        </nav>
+        <button class="cart-btn" id="open-cart" type="button">
+            السلة <span class="cart-count" id="cart-count">0</span>
+        </button>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <p class="hero-kicker"> Welcome to koj world </Buy>
+            <h1> Basic shirts </h1>
+            <p> Your style starts here. Explore the collection.
+                .</p>
+            <a href="#products" class="btn-primary"> Click your order </a>
+        </div>
+    </section>
+
+    <section id="products" class="products-section">
+        <h2>Stock</h2>
+        <p class="section-lead">اختر المقاس ثم أضف للسلة أو اطلب الآن.</p>
+        <div class="products-grid" id="products-grid"></div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2></h2>
+        <p> We will update the stock as soon as possible </p>
+    </section>
+
+    <div class="overlay" id="overlay" hidden></div>
+
+    <aside class="cart-drawer" id="cart-drawer" aria-hidden="true">
+        <div class="drawer-header">
+            <h3>سلة التسوق</h3>
+            <button class="icon-btn" id="close-cart" type="button" aria-label="إغلاق">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-summary" id="cart-summary"></div>
+        <button class="btn-primary full" id="order-now" type="button">Order Now</button>
+    </aside>
+
+    <section class="modal" id="checkout-modal" hidden>
+        <div class="modal-card">
+            <div class="drawer-header">
+                <h3>إتمام الطلب</h3>
+                <button class="icon-btn" id="close-checkout" type="button" aria-label="إغلاق">&times;</button>
+            </div>
+            <form id="checkout-form" novalidate>
+                <label>
+                    الاسم بالكامل
+                    <input type="text" name="fullName" required autocomplete="name">
+                </label>
+                <label>
+                    رقم الهاتف
+                    <input type="tel" name="phone" required inputmode="tel" placeholder="01xxxxxxxxx" autocomplete="tel">
+                    <span class="field-error" data-error-for="phone"></span>
+                </label>
+                <label>
+                    المحافظة
+                    <select name="governorate" required>
+                        <option value="">اختر المحافظة</option>
+                    </select>
+                </label>
+                <label>
+                    عنوان الشحن
+                    <textarea name="address" rows="3" required placeholder="الشارع، المبنى، علامة مميزة"></textarea>
+                </label>
+                <fieldset class="payment-fieldset">
+                    <legend>طريقة الدفع</legend>
+                    <label class="radio"><input type="radio" name="payment" value="cod" checked> الدفع عند الاستلام</label>
+                    <label class="radio"><input type="radio" name="payment" value="instapay"> Instapay</label>
+                    <label class="radio"><input type="radio" name="payment" value="card"> بطاقة ائتمان</label>
+                    <label class="radio"><input type="radio" name="payment" value="vodafone"> Vodafone Cash</label>
+                </fieldset>
+                <div class="checkout-totals" id="checkout-totals"></div>
+                <button class="btn-primary full" type="submit">Complete Order</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="modal" id="confirm-modal" hidden>
+        <div class="modal-card confirm-card">
+            <p class="confirm-badge">تم تأكيد الطلب</p>
+            <h3>شكراً لطلبك</h3>
+            <p class="order-id">رقم الطلب: <strong id="order-id"></strong></p>
+            <div class="order-summary" id="order-summary"></div>
+            <button class="btn-primary full" id="close-confirm" type="button">العودة للمتجر</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Koj Store.  .</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+    
